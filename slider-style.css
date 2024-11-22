@@ -1,0 +1,86 @@
+@media screen and (max-width: 321px) {
+    .slider__read-more {
+        display: none !important;
+    }
+
+    .slider__brands {
+        position: relative;
+        width: auto;
+        height: 120px;
+        /* Чтобы во время перетаскивания слайда ничего не выделить внутри него */
+        user-select: none;
+        /* Чтобы запретить скролл страницы, если мы начали двигать слайдер по оси X */
+        touch-action: pan-y;
+        overflow-x: hidden;
+        padding-bottom: 0;
+    }
+    
+    /* Если где-то внутри слайдера будут изображения,
+    то нужно задать им pointer-events: none,
+    чтобы они не перетаскивались мышью */
+    
+    .slider__brands img {
+        pointer-events: none;
+    }
+    
+    .slider-list {
+        width: 210px;
+        height: 84px;
+        /*overflow: hidden;*/
+    }
+    
+    .slider-list.grab {
+        cursor: grab;
+    }
+    
+    .slider-list.grabbing{
+        cursor: grabbing;
+    }
+    
+    .list-of-brands {
+        display: flex;
+    }
+    
+    .brand {
+        width: 210px;
+        height: 52px;
+        /* Чтобы слайды не сжимались */
+        flex-shrink: 0;
+    }
+
+    .slider__brands::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 30px;
+        height: 80px;
+        width: 30px;
+        background: linear-gradient(90deg, transparent, rgba(248, 248, 248, 1) 80%);
+        z-index: 10;
+    }
+
+    .slider__brands::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 80px;
+        width: 30px;
+        background: linear-gradient(270deg, transparent, rgba(248, 248, 248, 1) 60%);
+        z-index: 10;
+    }
+    .circle-list {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .circle-list__item {
+        background: url("images/blank-circle.svg") no-repeat;
+        width: 12px;
+        height: 12px;
+    }
+
+    .circle-list__item--active {
+        background-image: url("images/noblank-circle.svg");
+    }
+}
